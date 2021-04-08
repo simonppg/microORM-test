@@ -29,9 +29,12 @@ async function run (){
 
   console.log(authorRepo)
 
-  const author = new Author('Yo', "myEmail");
-  // wrap(author).assign(req.body);
-  await authorRepo.persistAndFlush(author);
+  const entities = [
+    new Author('some name', "myEmail"+new Date()),
+    new Author('this is a name', "an example email"+new Date())
+  ]
+
+  await authorRepo.persistAndFlush(entities)
 
   const authors = await authorRepo.findAll()
 
