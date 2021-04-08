@@ -1,6 +1,6 @@
 import { Cascade, Collection, Entity, OneToMany, Property, ManyToOne } from '@mikro-orm/core';
 
-import { Book } from '.';
+// import { Book } from '.';
 import { BaseEntity } from './BaseEntity';
 
 @Entity()
@@ -21,11 +21,11 @@ export class Author extends BaseEntity {
   @Property()
   born?: Date;
 
-  @OneToMany(() => Book, b => b.author, { cascade: [Cascade.ALL] })
-  books = new Collection<Book>(this);
+  // @OneToMany(() => Book, b => b.author, { cascade: [Cascade.ALL] })
+  // books = new Collection<Book>(this);
 
-  @ManyToOne(() => Book)
-  favouriteBook?: Book;
+  // @ManyToOne(() => Book)
+  // favouriteBook?: Book;
 
   constructor(name: string, email: string) {
     super();

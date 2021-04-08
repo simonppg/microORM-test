@@ -4,7 +4,7 @@ alter table "tag" add constraint "tag_pkey" primary key ("id");
 create table "publisher" ("id" uuid not null, "created_at" timestamptz(0) not null, "updated_at" timestamptz(0) not null, "name" varchar(255) not null, "type" text check ("type" in (\'local\', \'global\')) not null);
 alter table "publisher" add constraint "publisher_pkey" primary key ("id");
 
-create table "author" ("id" uuid not null, "created_at" timestamptz(0) not null, "updated_at" timestamptz(0) not null, "name" varchar(255) not null, "email" varchar(255) not null, "terms_accepted" jsonb not null, "born" timestamptz(0) null, "favourite_book_id" uuid null);
+create table "author" ("id" uuid not null, "created_at" timestamptz(0) not null, "updated_at" timestamptz(0) not null, "name" varchar(255) not null, "email" varchar(255) not null, "terms_accepted" boolean not null, "born" timestamptz(0) null, "favourite_book_id" uuid null);
 alter table "author" add constraint "author_pkey" primary key ("id");
 alter table "author" add constraint "author_email_unique" unique ("email");
 
