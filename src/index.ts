@@ -23,11 +23,9 @@ async function run (){
 
   const orm = await initORM()
 
-  console.log(orm.em); // access EntityManager via `em` property
-
   const authorRepo = orm.em.getRepository(Author)
 
-  console.log(authorRepo)
+  await authorRepo.nativeDelete({})
 
   const entities = [
     new Author('some name', "myEmail"+new Date()),
@@ -39,8 +37,6 @@ async function run (){
   const authors = await authorRepo.findAll()
 
   console.log(authors)
-
-
 }
 
 run()
